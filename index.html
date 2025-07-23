@@ -39,6 +39,11 @@
                         </button>
                     </div>
                     
+                    <div class="wishlist-icon" onclick="toggleWishlist()">
+                        <i class="fas fa-heart"></i>
+                        <span class="wishlist-count" id="wishlistCount">0</span>
+                    </div>
+                    
                     <div class="cart-icon" onclick="toggleCart()">
                         <i class="fas fa-shopping-bag"></i>
                         <span class="cart-count" id="cartCount">0</span>
@@ -89,6 +94,35 @@
         </div>
     </section>
 
+    <!-- Flash Sale Banner -->
+    <section class="flash-sale">
+        <div class="container">
+            <div class="flash-sale-content">
+                <div class="flash-sale-text">
+                    <h3>⚡ Flash Sale</h3>
+                    <p>Up to 30% off on selected items</p>
+                </div>
+                <div class="flash-sale-timer">
+                    <span>Ends in:</span>
+                    <div class="timer">
+                        <div class="time-unit">
+                            <span id="hours">12</span>
+                            <small>Hours</small>
+                        </div>
+                        <div class="time-unit">
+                            <span id="minutes">45</span>
+                            <small>Min</small>
+                        </div>
+                        <div class="time-unit">
+                            <span id="seconds">30</span>
+                            <small>Sec</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Products Section -->
     <section id="products" class="products">
         <div class="container">
@@ -97,19 +131,41 @@
                 <p>Premium quality electrical products for all your needs</p>
             </div>
             
-            <!-- Category Filter -->
-            <div class="category-filter">
-                <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
-                <button class="filter-btn" onclick="filterProducts('wires')">Wires</button>
-                <button class="filter-btn" onclick="filterProducts('switches')">Switches</button>
-                <button class="filter-btn" onclick="filterProducts('sockets')">Sockets</button>
-                <button class="filter-btn" onclick="filterProducts('plates')">Plates</button>
-                <button class="filter-btn" onclick="filterProducts('accessories')">Accessories</button>
+            <!-- Advanced Filters -->
+            <div class="filters-container">
+                <div class="category-filter">
+                    <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+                    <button class="filter-btn" onclick="filterProducts('wires')">Wires</button>
+                    <button class="filter-btn" onclick="filterProducts('switches')">Switches</button>
+                    <button class="filter-btn" onclick="filterProducts('sockets')">Sockets</button>
+                    <button class="filter-btn" onclick="filterProducts('plates')">Plates</button>
+                    <button class="filter-btn" onclick="filterProducts('accessories')">Accessories</button>
+                </div>
+                
+                <div class="sort-filter">
+                    <select id="sortSelect" onchange="sortProducts(this.value)">
+                        <option value="default">Sort by</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name: A to Z</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
             </div>
 
             <!-- Products Grid -->
             <div class="products-grid" id="productsGrid">
                 <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Recently Viewed -->
+    <section class="recently-viewed" id="recentlyViewed" style="display: none;">
+        <div class="container">
+            <h3>Recently Viewed</h3>
+            <div class="recently-viewed-grid" id="recentlyViewedGrid">
+                <!-- Recently viewed products will be loaded here -->
             </div>
         </div>
     </section>
@@ -153,10 +209,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="about-image">
-                    <img src="/placeholder.svg?height=400&width=500&text=About+Ansh+Electronics" alt="About Us">
                 </div>
             </div>
         </div>
@@ -295,6 +347,37 @@
             </div>
         </div>
     </footer>
+
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="quickViewModal">
+        <div class="modal-content quick-view-modal">
+            <button class="modal-close" onclick="closeQuickView()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="quick-view-content" id="quickViewContent">
+                <!-- Quick view content will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Sidebar -->
+    <div class="wishlist-sidebar" id="wishlistSidebar">
+        <div class="wishlist-header">
+            <h3>My Wishlist</h3>
+            <button class="close-wishlist" onclick="toggleWishlist()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="wishlist-items" id="wishlistItems">
+            <div class="empty-wishlist">
+                <i class="fas fa-heart"></i>
+                <p>Your wishlist is empty</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Overlay -->
+    <div class="wishlist-overlay" id="wishlistOverlay" onclick="toggleWishlist()"></div>
 
     <script src="script.js"></script>
 </body>
