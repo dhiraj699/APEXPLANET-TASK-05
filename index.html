@@ -6,151 +6,157 @@
     <title>Ansh Electronics - Your Trusted Electronics Store</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    
 </head>
 <body>
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="logo">
-                <img src="logo.png" alt="Ansh Electronics">
-                <h1>Ansh Electronics</h1>
-            </div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Search Products...">
-                <button onclick="searchProducts()"><i class="fas fa-search"></i></button>
-            </div>
-            <div class="cart-icon" onclick="toggleCart()">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count" id="cartCount">0</span>
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">A</div>
+                    <div class="logo-text">
+                        <h1>Ansh Electronics</h1>
+                        <span>Quality Products</span>
+                    </div>
+                </div>
+                
+                <nav class="nav" id="nav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <div class="search-container">
+                        <input type="text" id="searchInput" placeholder="Search products...">
+                        <button onclick="searchProducts()" class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="cart-icon" onclick="toggleCart()">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                    
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Welcome to Ansh Electronics</h1>
-            <p>Quality Electrical Products - Wires, Switches, Sockets & More</p>
-            <a href="#products" class="btn">Explore Products</a>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span>✨ Premium Quality Products</span>
+                </div>
+                <h1>Welcome to Ansh Electronics</h1>
+                <p>Quality Electrical Products - Wires, Switches, Sockets & More</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToProducts()">
+                        Explore Products
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-phone"></i>
+                        Contact Us
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Happy Customers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Products</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Products Section -->
     <section id="products" class="products">
         <div class="container">
-            <h2>Our Product Series</h2>
+            <div class="section-header">
+                <h2>Our Product Collection</h2>
+                <p>Premium quality electrical products for all your needs</p>
+            </div>
             
             <!-- Category Filter -->
             <div class="category-filter">
                 <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
                 <button class="filter-btn" onclick="filterProducts('wires')">Wires</button>
-                <button class="filter-btn" onclick="filterProducts('switches')">Vihan Switches</button>
-                <button class="filter-btn" onclick="filterProducts('sockets')">Vihan Sockets</button>
-                <button class="filter-btn" onclick="filterProducts('plates')">Vihan Plates</button>
+                <button class="filter-btn" onclick="filterProducts('switches')">Switches</button>
+                <button class="filter-btn" onclick="filterProducts('sockets')">Sockets</button>
+                <button class="filter-btn" onclick="filterProducts('plates')">Plates</button>
                 <button class="filter-btn" onclick="filterProducts('accessories')">Accessories</button>
             </div>
 
-            <!-- Wires Series -->
-            <div class="product-series">
-                <div class="series-header">
-                    <h3><i class="fas fa-plug"></i> Wire Series</h3>
-                    <p>Premium quality electrical wires for all your needs</p>
-                </div>
-                <div class="series-image">
-                    <img src="copper_wires_series.jpeg" alt="Copper Wire Series" />
-                </div>
-                <div class="series-products" id="wireProducts">
-                    <!-- Wire products will be loaded here -->
-                </div>
-            </div>
-
-            <!-- Switches Series -->
-            <div class="product-series">
-                <div class="series-header">
-                    <h3><i class="fas fa-toggle-on"></i> Vihan Switch Series</h3>
-                    <p>Elegant and reliable switches from Vihan</p>
-                </div>
-                <div class="series-image">
-                    <img src="switch_series.jpeg" alt="Vihan Switch Series" />
-                </div>
-                <div class="series-products" id="switchProducts">
-                    <!-- Switch products will be loaded here -->
-                </div>
-            </div>
-
-            <!-- Sockets Series -->
-            <div class="product-series">
-                <div class="series-header">
-                    <h3><i class="fas fa-plug-circle-bolt"></i> Vihan Socket Series</h3>
-                    <p>Modern and safe socket solutions</p>
-                </div>
-                <div class="series-image">
-                    <img src="shockets_series.jpeg" alt="Vihan Socket Series" />
-                </div>
-                <div class="series-products" id="socketProducts">
-                    <!-- Socket products will be loaded here -->
-                </div>
-            </div>
-
-            <!-- Plates Series -->
-            <div class="product-series">
-                <div class="series-header">
-                    <h3><i class="fas fa-square"></i> Vihan Plate Designs</h3>
-                    <p>Decorative plates to complement your switches</p>
-                </div>
-                <div class="series-image">
-                    <img src="plate-series.jpeg" alt="Vihan Plate Series" />
-                </div>
-                <div class="series-products" id="plateProducts">
-                    <!-- Plate products will be loaded here -->
-                </div>
-            </div>
-
-            <!-- Accessories Series -->
-            <div class="product-series">
-                <div class="series-header">
-                    <h3><i class="fas fa-tools"></i> Accessories Series</h3>
-                    <p>Essential electrical accessories and tools</p>
-                </div>
-                <div class="series-image">
-                    <img src="accessories-series.avif" alt="Accessories Series" />
-                </div>
-                <div class="series-products" id="accessoryProducts">
-                    <!-- Accessory products will be loaded here -->
-                </div>
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- About Us Section -->
+    <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2>About Ansh Electronics</h2>
             <div class="about-content">
-                <p>Ansh Electronics has been serving customers for over 04 years with quality electrical products. We specialize in wires, switches, sockets, and electrical accessories from trusted brands like Vihan.</p>
-                <div class="features">
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Quality Products</span>
+                <div class="about-text">
+                    <h2>About Ansh Electronics</h2>
+                    <p>Ansh Electronics has been serving customers for over 4 years with quality electrical products. We specialize in wires, switches, sockets, and electrical accessories from trusted brands like Vihan.</p>
+                    
+                    <div class="features-grid">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Quality Products</h3>
+                                <p>Premium electrical products from trusted brands</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>Fast Delivery</h3>
+                                <p>Quick and reliable delivery to your doorstep</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h3>24/7 Support</h3>
+                                <p>Round the clock customer support</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature">
-                        <i class="fas fa-shipping-fast"></i>
-                        <span>Fast Delivery</span>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-phone"></i>
-                        <span>Customer Support</span>
-                    </div>
+                </div>
+                
+                <div class="about-image">
+                    <img src="/placeholder.svg?height=400&width=500&text=About+Ansh+Electronics" alt="About Us">
                 </div>
             </div>
         </div>
@@ -159,38 +165,63 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Contact Us</h2>
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Contact us for any queries or support</p>
+            </div>
+            
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
                             <h3>Address</h3>
                             <p>Chittarpur(Kali Chock), Ramgarh, Jharkhand(825101)</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
                             <h3>Phone</h3>
                             <p>+91 82100 05350</p>
+                            <p>+91 62015 57347</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
                             <h3>Email</h3>
                             <p>info@anshelectronics.com</p>
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form onsubmit="submitForm(event)">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <input type="tel" name="phone" placeholder="Your Phone" required>
-                        <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
-                        <button type="submit">Send Message</button>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" onsubmit="submitForm(event)">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Your Phone" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            Send Message
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -206,13 +237,19 @@
             </button>
         </div>
         <div class="cart-items" id="cartItems">
-            <!-- Cart items will be dynamically added here -->
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <strong>Total: ₹<span id="cartTotal">0.00</span></strong>
+            <div class="empty-cart">
+                <i class="fas fa-shopping-bag"></i>
+                <p>Your cart is empty</p>
             </div>
-            <button class="checkout-btn" onclick="checkout()">Place Order</button>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display: none;">
+            <div class="cart-total">
+                <span>Total: ₹<span id="cartTotal">0.00</span></span>
+            </div>
+            <button class="btn btn-primary" onclick="checkout()">
+                Place Order
+                <i class="fas fa-arrow-right"></i>
+            </button>
         </div>
     </div>
 
@@ -224,9 +261,15 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Ansh Electronics</h3>
-                    <p>Your trusted electronics store in Chittarpur for quality products.</p>
+                    <div class="footer-logo">
+                        <div class="logo-icon">A</div>
+                        <div>
+                            <h3>Ansh Electronics</h3>
+                            <p>Your trusted electronics store</p>
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul>
@@ -236,14 +279,17 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-section">
                     <h3>Contact Info</h3>
-                    <p>Phone: +91 82100 05350</p>
-                    <p>Phone: +91 62015 57347</p>
-                    <p>Email: info@anshelectronics.com</p>
-                    <p>Location: Chittarpur(Kali Chock), Ramgarh, Jharkhand(825101)</p>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-phone"></i> +91 82100 05350</p>
+                        <p><i class="fas fa-envelope"></i> info@anshelectronics.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Chittarpur, Ramgarh, Jharkhand</p>
+                    </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
                 <p>&copy; 2025 Ansh Electronics Chittarpur. All rights reserved.</p>
             </div>
